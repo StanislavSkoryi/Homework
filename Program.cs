@@ -2,7 +2,7 @@
 
 namespace _2_1
 {
-    // dsps
+    // шоб уже до конца правильно этот класс нужно в отдельный файл вынести
     class User
     {
         public string login;

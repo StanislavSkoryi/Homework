@@ -35,7 +35,7 @@ namespace _2_1
             user.login = GetInfoFromInput("Введите логин:");
             user.name = GetInfoFromInput("Введите имя:");
             user.surname = GetInfoFromInput("Введите фамилию:");
-            user.age = GetInfoFromInput("Введите возраст:");
+            user.age = GetInfoFromInput("Введите свой возраст:");
 
             user.OtputUserInfo();
         }

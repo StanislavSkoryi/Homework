@@ -7,11 +7,10 @@ namespace Igor_task
     {
         static void Main(string[] args)
         {
-            User name = new User();
             Console.WriteLine("Введите имя");
-            name.Field = Console.ReadLine();
+            User user = new User(Console.ReadLine());
 
-            if(name.Field != null) User.OutputInfo(name.Field);
+            user.OutputInfo();
 
             Console.ReadKey();
         }

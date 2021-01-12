@@ -4,34 +4,37 @@ namespace Igor_task
 {
     class User
     {
-        string field;
-        public string Field
+        private string field;
+
+        public User(string fieldInput)
         {
-            get
+            try
             {
-                return field;
-            }
-            set
-            {
-                if (String.IsNullOrWhiteSpace(value))
+                if (String.IsNullOrWhiteSpace(fieldInput))
                 {
-                    Console.WriteLine("Имя не должно быть пустым или содержать пробелы.");
+                    throw new Exception("имя не должно быть пустым или содержать пробелы.");
                 }
-                else if (value.Length > 20)
+                else if (fieldInput.Length > 20)
                 {
-                    Console.WriteLine("Имя не должно содержать больше двадцати символов.");
+                    throw new Exception("имя не должно содержать больше двадцати символов.");
                 }
-                else if (!char.IsUpper(value[0]))
+                else if (!char.IsUpper(fieldInput[0]))
                 {
-                    Console.WriteLine("Имя должно начинаться с большой буквы.");
+                    throw new Exception("имя должно начинаться с большой буквы.");
                 }
                 else
-                    field = value;
+                    field = fieldInput;
             }
+            catch(Exception a)
+            {
+                Console.WriteLine($"Ошибка: {a.Message}");
+            }
+
         }
-        public static void OutputInfo(string field)
+
+        public void OutputInfo()
         {
-            Console.WriteLine($"Ваше имя: {field}");
+            if(field!=null) Console.WriteLine($"Ваше имя: {field}");
         }
     }
 

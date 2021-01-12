@@ -4,28 +4,38 @@ namespace _2_1
 {
     class User
     {
-        string login;
-        string name;
-        string surname;
-        int age;
+        string loginField;
+        string nameField;
+        string surnameField;
+        int ageField;
 
-        public string Login { get; set; }
-        public string Name { get; set; }
+        public string Login
+        {
+            get
+            {
+                return loginField;
+            }
+            set
+            {
+                loginField = value;
+            }
+        }
+        public string Name { get; set ; }
         public string Surname { get; set; }
         public int Age { get; set; }
 
 
         private readonly string date = Convert.ToString(DateTime.Now);
 
-        public static void Validate(string login, string name, string surname, int age)
+        public static void Validate(string loginInput, string name, string surname, int age)
         {
             User field = new User();
             bool allInfoIsValid = false, loginIsValid = false, nameIsValid = false, surnameIsValid = false, ageIsValid = false;
 
-            if (!String.IsNullOrWhiteSpace(login))
+            if (!String.IsNullOrWhiteSpace(loginInput))
             {
                 
-                field.login = login;
+                field.Login = loginInput;
                 loginIsValid = true;
             }
             else
@@ -33,7 +43,7 @@ namespace _2_1
 
             if (!String.IsNullOrWhiteSpace(name))
             { 
-                field.name = name;
+                field.Name = name;
                 nameIsValid = true;
             }
             else
@@ -41,7 +51,7 @@ namespace _2_1
 
             if (!String.IsNullOrWhiteSpace(surname))
             {
-                field.surname = surname;
+                field.Surname = surname;
                 surnameIsValid = true;
             }
             else
@@ -49,7 +59,7 @@ namespace _2_1
 
             if (age >= 1 && age <= 100)
             {
-                field.age = age;
+                field.Age = age;
                 ageIsValid = true;
             }
             else
@@ -60,7 +70,7 @@ namespace _2_1
         public void OtputUserInfo()
         {
             Console.WriteLine("Данные о пользователе:");
-            Console.WriteLine($"Логин: {_login}, имя: {_name} {_surname}, возраст: {_age}. Дата заполнения анкеты: {date}");
+            Console.WriteLine($"Логин: {loginField}, имя: {nameField} {surnameField}, возраст: {ageField}. Дата заполнения анкеты: {date}");
             Console.ReadKey();
         }
 

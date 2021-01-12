@@ -2,7 +2,7 @@
 
 namespace _2_1
 {
-    class User
+    class Program
     {
         public string login;
         public string name;

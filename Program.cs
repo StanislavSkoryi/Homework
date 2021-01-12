@@ -1,43 +1,42 @@
 ﻿using System;
+using System.IO;
 
 namespace _2_1
 {
-    class User
+    class Program 
     {
-        public string login;
-        public string name;
-        public string surname;
-        public string age;
-        private readonly string date;
-        
         static string GetInfoFromInput(string message)
         {
             Console.WriteLine(message);
             string newElement = Console.ReadLine();
             return newElement;
         }
-        public User(string date)
+        static int GetNumberFromInput(string message)
         {
-            this.date = date;
-        }
-        public void OtputUserInfo()
-        {
-            Console.WriteLine("Данные о пользователе:");
-            Console.WriteLine($"Логин: {login}, имя: {name} {surname}, возраст: {age}. Дата заполнения анкеты: {date}");
-            Console.ReadKey();
+            Console.WriteLine(message);
+            string newElementString = Console.ReadLine();
+            int newElementInt = Convert.ToInt32(newElementString);
+            return newElementInt;
         }
 
         static void Main(string[] args)
         {
-            string message = GetInfoFromInput("Введите дату:");
-            User user = new User(message);
+            User user = new User();
 
-            user.login = GetInfoFromInput("Введите логин:");
-            user.name = GetInfoFromInput("Введите имя:");
-            user.surname = GetInfoFromInput("Введите фамилию:");
-            user.age = GetInfoFromInput("Введите свой возраст:");
+            string login = GetInfoFromInput("Введите логин:");
+            string name = GetInfoFromInput("Введите имя:");
+            string surname = GetInfoFromInput("Введите фамилию:");
+            int age = GetNumberFromInput("Введите свой возраст:");
+
+            User.Validate(login, name, surname, age);
+
+            //user.login = GetInfoFromInput("Введите логин:");
+            //user.name = GetInfoFromInput("Введите имя:");
+            //user.surname = GetInfoFromInput("Введите фамилию:");
+            //user.age = GetInfoFromInput("Введите свой возраст:");
 
             user.OtputUserInfo();
         }
     }
 }
+

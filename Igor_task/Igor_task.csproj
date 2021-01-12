@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B424B341-B92A-47F3-BA93-15827E3D0208}</ProjectGuid>
+    <ProjectGuid>{A3C7BE3E-8A98-4829-AC22-A292AFBA253F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_2_1</RootNamespace>
-    <AssemblyName>2-1</AssemblyName>
+    <RootNamespace>Igor_task</RootNamespace>
+    <AssemblyName>Igor_task</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

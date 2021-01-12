@@ -2,12 +2,14 @@
 
 namespace Igor_task
 {
+    // добавь модификатор доступа
     class User
     {
         private string field;
 
         public User(string fieldInput)
         {
+            // try/catch лучше вынести на уровень приложения
             try
             {
                 if (String.IsNullOrWhiteSpace(fieldInput))
@@ -22,6 +24,12 @@ namespace Igor_task
                 {
                     throw new Exception("имя должно начинаться с большой буквы.");
                 }
+                // чисто по задротски тут бы скобочки втулить если везде вверху они есть
+                // если однотипно всегда лучше читается
+                // else
+                // {
+                //     field = fieldInput;
+                // }
                 else
                     field = fieldInput;
             }

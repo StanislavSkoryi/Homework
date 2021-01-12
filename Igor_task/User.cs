@@ -2,7 +2,7 @@
 
 namespace Igor_task
 {
-    class User
+    public class User
     {
         private string field;
 

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Igor_task2
 {
-    class User
+    public class User
     {
         private string id;
         private string teeth;

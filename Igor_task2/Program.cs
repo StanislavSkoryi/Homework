@@ -6,11 +6,12 @@ namespace Igor_task2
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("Введите ID:");
             string idInput = Console.ReadLine();
 
+            // а если в конструкторе ошибка?
             User user = new User(idInput);
+            // по логике ты же создаешь юзера - userIsnotValid
             bool teethIsNotValid = true;
 
             while (teethIsNotValid)
@@ -30,7 +31,6 @@ namespace Igor_task2
             }
 
             user.TeethToUpperAndLowercase();
-
             user.UserIdAndTeethOutputInfo();
         }
     }

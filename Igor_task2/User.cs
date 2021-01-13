@@ -10,8 +10,11 @@ namespace Igor_task2
 
         public User(string idInput)
         {
+            // этого я не написал, но добавь тут проверку на null, потому что предполагаем что id не может быть пустым 
             id = idInput;
         }
+
+        // тут почти вопросов нет, только ж есть не только буквы и цифры ^^:) и назови SetTeeth
         public void InsertTeeth(string teethInput)
         {
             string teethInputNoSpaces = teethInput.Replace(" ", "");
@@ -34,6 +37,7 @@ namespace Igor_task2
             }
         }
 
+        // тут по условию нужно вернуть строку и назови GetTeeth
         public void TeethToUpperAndLowercase()
         {
             teeth = teeth.ToLower();
@@ -47,9 +51,13 @@ namespace Igor_task2
             teeth = new string(teethToUpperAndLowercase);
         }
 
+        // если по хорошему то этот метод должен явно называться WriteUserInfoToConsole 
+        // или возвращать строку а уже на верхнем уровне ты это пишешь в консоль
         public void UserIdAndTeethOutputInfo()
         {
             Console.WriteLine($"У юзера {id} вот такие зубы: {teeth}");
+            // этого тут быть не должно потому что допустим я пишу прогу создаю юзера и хочу отобразить инфу
+            // а эта хуйня блочит выполнение
             Console.ReadKey();
         }
     }

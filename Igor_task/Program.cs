@@ -4,11 +4,6 @@ namespace Igor_task
 {
     class Program
     {
-        /*
-         * цель таски создать юзера правильного юзера и вывести его имя
-         * если ошибка - вывести ошибку и повторить создание юзера
-         */
-
         static void Main(string[] args)
         {
             bool nameIsNotValid = true;

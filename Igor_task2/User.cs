@@ -34,7 +34,7 @@ namespace Igor_task2
             }
         }
 
-        public void TeethToUpperAndLowercase()
+        public string TeethToUpperAndLowercase()
         {
             teeth = teeth.ToLower();
             char [] teethToUpperAndLowercase = teeth.ToCharArray();
@@ -45,6 +45,7 @@ namespace Igor_task2
             }
 
             teeth = new string(teethToUpperAndLowercase);
+            return teeth;
         }
 
         public void UserIdAndTeethOutputInfo()

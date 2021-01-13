@@ -32,6 +32,7 @@ namespace Igor_task2
             user.TeethToUpperAndLowercase();
 
             user.UserIdAndTeethOutputInfo();
+
         }
     }
 }

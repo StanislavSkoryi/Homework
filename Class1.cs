@@ -2,7 +2,7 @@
 
 namespace _2_1
 {
-    class User
+    public class User
     {
         private string login;
         private string name;

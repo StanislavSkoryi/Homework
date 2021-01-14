@@ -2,7 +2,7 @@
 
 namespace _2_1
 {
-    class Program
+    public class Program
     {
         static string GetInfoFromInput(string message)
         {

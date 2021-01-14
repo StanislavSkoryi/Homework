@@ -6,21 +6,27 @@ namespace Igor_task2
     {
         static void Main(string[] args)
         {
+            bool inputIsNotValid = true;
 
-            Console.WriteLine("Введите ID:");
-            string idInput = Console.ReadLine();
-
-            User user = new User(idInput);
-            bool teethIsNotValid = true;
-
-            while (teethIsNotValid)
+            while (inputIsNotValid)
             {
                 try
                 {
+                    Console.WriteLine("Введите ID:");
+                    string idInput = Console.ReadLine();
+                    User user = new User(idInput);
+
                     Console.WriteLine("Укажите зубы буквами:");
                     string teethInput = Console.ReadLine();
-                    user.InsertTeeth(teethInput);
-                    teethIsNotValid = false;
+                    user.SetTeeth(teethInput);
+
+                    inputIsNotValid = false;
+
+                    user.GetTeeth();
+
+                    user.WriteUserInfoToConsole();
+
+                    Console.ReadKey();
                 }
                 catch (Exception ex)
                 {
@@ -28,11 +34,6 @@ namespace Igor_task2
                     Console.ReadKey();
                 }
             }
-
-            user.TeethToUpperAndLowercase();
-
-            user.UserIdAndTeethOutputInfo();
-
         }
     }
 }

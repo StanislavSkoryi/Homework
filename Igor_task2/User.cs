@@ -10,9 +10,13 @@ namespace Igor_task2
 
         public User(string idInput)
         {
-            id = idInput;
+            if (String.IsNullOrEmpty(idInput))
+            {
+                throw new Exception("поле ID не может быть пустым.");
+            }
+                id = idInput;
         }
-        public void InsertTeeth(string teethInput)
+        public void SetTeeth(string teethInput)
         {
             string teethInputNoSpaces = teethInput.Replace(" ", "");
 
@@ -24,6 +28,10 @@ namespace Igor_task2
             {
                 throw new Exception("вам нужны зубы, чтобы открывать пиво.");
             }
+            else if (!teethInputNoSpaces.Any(char.IsLetter))
+            {
+                throw new Exception("зубы должны быть буквами.");
+            }
             else if (teethInputNoSpaces.Any(char.IsDigit))
             {
                 throw new Exception("зубы не должны содержать цифры.");
@@ -34,24 +42,23 @@ namespace Igor_task2
             }
         }
 
-        public string TeethToUpperAndLowercase()
+        public string GetTeeth()
         {
-            teeth = teeth.ToLower();
-            char [] teethToUpperAndLowercase = teeth.ToCharArray();
+            string teethUpAndLow = teeth.ToLower();
+            char [] teethUpAndLowArr = teethUpAndLow.ToCharArray();
 
-            for (int i = 0; i < teethToUpperAndLowercase.Length; i = i + 2)
+            for (int i = 0; i < teethUpAndLowArr.Length; i = i + 2)
             {
-                teethToUpperAndLowercase[i] = char.ToUpper(teethToUpperAndLowercase[i]);
+                teethUpAndLowArr[i] = char.ToUpper(teethUpAndLowArr[i]);
             }
 
-            teeth = new string(teethToUpperAndLowercase);
-            return teeth;
+            teethUpAndLow = new string(teethUpAndLowArr);
+            return teethUpAndLow;
         }
 
-        public void UserIdAndTeethOutputInfo()
+        public void WriteUserInfoToConsole()
         {
-            Console.WriteLine($"У юзера {id} вот такие зубы: {teeth}");
-            Console.ReadKey();
+            Console.WriteLine($"У юзера {id} вот такие зубы: {GetTeeth()}");
         }
     }
 

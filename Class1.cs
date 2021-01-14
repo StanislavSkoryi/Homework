@@ -4,75 +4,74 @@ namespace _2_1
 {
     class User
     {
-        string loginField;
-        string nameField;
-        string surnameField;
-        int ageField;
-
-        public string Login
-        {
-            get
-            {
-                return loginField;
-            }
-            set
-            {
-                loginField = value;
-            }
-        }
-        public string Name { get; set ; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-
-
+        private string login;
+        private string name;
+        private string surname;
+        private int age;
         private readonly string date = Convert.ToString(DateTime.Now);
 
-        public static void Validate(string loginInput, string name, string surname, int age)
+        public User(string login, string name, string surname, int age)
         {
-            User field = new User();
-            bool allInfoIsValid = false, loginIsValid = false, nameIsValid = false, surnameIsValid = false, ageIsValid = false;
-
+            this.login = login;
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+        }
+        
+        public static string SetLogin(string loginInput)
+        {
             if (!String.IsNullOrWhiteSpace(loginInput))
             {
-                
-                field.Login = loginInput;
-                loginIsValid = true;
+                return loginInput;
             }
             else
+            {
                 Console.WriteLine("Некорректный логин.");
-
-            if (!String.IsNullOrWhiteSpace(name))
-            { 
-                field.Name = name;
-                nameIsValid = true;
+                return null;
             }
-            else
-                Console.WriteLine("Некорректное имя.");
-
-            if (!String.IsNullOrWhiteSpace(surname))
-            {
-                field.Surname = surname;
-                surnameIsValid = true;
-            }
-            else
-                Console.WriteLine("Некорректная фамилия");
-
-            if (age >= 1 && age <= 100)
-            {
-                field.Age = age;
-                ageIsValid = true;
-            }
-            else
-                Console.WriteLine("Некорректный возраст");
-
-            allInfoIsValid = loginIsValid && nameIsValid && surnameIsValid & ageIsValid;
         }
+        public static string SetName(string nameInput)
+        {
+            if (!String.IsNullOrWhiteSpace(nameInput))
+            {
+                return nameInput;
+            }
+            else
+            {
+                Console.WriteLine("Некорректное имя.");
+                return null;
+            }
+        }
+        public static string SetSurname(string surnameInput)
+        {
+            if (!String.IsNullOrWhiteSpace(surnameInput) || surnameInput != "")
+            {
+                return surnameInput;
+            }
+            else
+            {
+                Console.WriteLine("Некорректная фамилия.");
+                return null;
+            }
+        }
+        public static int SetAge(int ageInput)
+        {
+            if (ageInput >= 1 && ageInput <= 100)
+            {
+                return ageInput;
+            }
+            else
+            {
+                Console.WriteLine("Некорректный возраст");
+                return 0;
+            }
+        }
+
         public void OtputUserInfo()
         {
             Console.WriteLine("Данные о пользователе:");
-            Console.WriteLine($"Логин: {loginField}, имя: {nameField} {surnameField}, возраст: {ageField}. Дата заполнения анкеты: {date}");
+            Console.WriteLine($"Логин: {login}, имя: {name} {surname}, возраст: {age}. Дата заполнения анкеты: {date}");
             Console.ReadKey();
         }
-
     }
 }

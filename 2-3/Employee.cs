@@ -9,7 +9,6 @@ namespace _2_4
         private string position;
         private double experience; //years
         private const double TAX_RATE = 0.2; //20%
-        private double salary, taxes;
 
         public Employee(string nameInput, string surnameInput, string positionInput, double experienceInput)
         {
@@ -19,7 +18,7 @@ namespace _2_4
             experience = experienceInput;
         }
 
-        public void SetSalaryAndTaxes()
+        public double GetSalary()
         {
             int initialRate = 0;
             double experienceRate;
@@ -33,16 +32,33 @@ namespace _2_4
                 default: break;
             }
 
-            experienceRate = experience < 1 ? 1 : experience < 3 ? 1.2 : 1.4;
+            if(experience < 1)
+            {
+                experienceRate = 1;
+            }
+            else if(experience < 3)
+            {
+                experienceRate = 1.2;
+            }
+            else
+            {
+                experienceRate = 1.4;
+            }
 
-            salary = initialRate * experienceRate * (1 - TAX_RATE);
+            double salary = initialRate * experienceRate * (1 - TAX_RATE);
 
-            taxes = initialRate * experienceRate * TAX_RATE;
+            return salary;
+        }
+
+        public double GetTaxes()
+        {
+            double taxes = GetSalary() / 80 * 20;
+            return taxes;
         }
 
         public void WriteUserInfoToConsole()
         {
-            Console.WriteLine($"{name} {surname} занимает должность: {position}. Чистый оклад: {salary}. Налоговый сбор: {taxes}.");
+            Console.WriteLine($"{name} {surname} занимает должность: {position}. Чистый оклад: {GetSalary()}. Налоговый сбор: {GetTaxes()}.");
         }
     }
 }

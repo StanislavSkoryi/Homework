@@ -110,7 +110,6 @@ namespace _2_4
 
             Employee employee = new Employee(nameInput, surnameInput, positionInput, experienceInput);
 
-            employee.SetSalaryAndTaxes();
             employee.WriteUserInfoToConsole();
 
             Console.ReadKey(); //Delay

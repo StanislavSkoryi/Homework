@@ -20,31 +20,31 @@ namespace _2_1
 
         static void Main(string[] args)
         {
+            User user = new User();
+
             string loginInput = null, nameInput = null, surnameInput = null;
             int ageInput = 0;
 
             while (loginInput == null)
             {
                 loginInput = GetInfoFromInput("Введите логин:");
-                loginInput = User.SetLogin(loginInput);
+                user.SetLogin(ref loginInput);
             }
             while (nameInput == null)
             {
                 nameInput = GetInfoFromInput("Введите имя:");
-                nameInput = User.SetName(nameInput);
+                user.SetName(ref nameInput);
             }
             while (surnameInput == null)
             {
                 surnameInput = GetInfoFromInput("Введите фамилию:");
-                surnameInput = User.SetSurname(surnameInput);
+                user.SetSurname(ref surnameInput);
             }
             while (ageInput == 0)
             {
                 ageInput = GetNumberFromInput("Введите свой возраст:");
-                ageInput = User.SetAge(ageInput);
+                user.SetAge(ref ageInput);
             }
-
-            User user = new User(loginInput, nameInput, surnameInput, ageInput);
 
             user.OtputUserInfo();
         }

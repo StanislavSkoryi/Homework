@@ -32,10 +32,6 @@ namespace Igor_task2
             {
                 throw new Exception("зубы должны быть буквами.");
             }
-            else if (teethInputNoSpaces.Any(char.IsDigit))
-            {
-                throw new Exception("зубы не должны содержать цифры.");
-            }
             else
             {
                 teeth = teethInputNoSpaces;

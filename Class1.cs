@@ -9,61 +9,53 @@ namespace _2_1
         private string surname;
         private int age;
         private readonly string date = Convert.ToString(DateTime.Now);
-
-        public User(string login, string name, string surname, int age)
-        {
-            this.login = login;
-            this.name = name;
-            this.surname = surname;
-            this.age = age;
-        }
-        
-        public static string SetLogin(string loginInput)
+      
+        public void SetLogin(ref string loginInput)
         {
             if (!String.IsNullOrWhiteSpace(loginInput))
             {
-                return loginInput;
+                login = loginInput;
             }
             else
             {
                 Console.WriteLine("Некорректный логин.");
-                return null;
+                loginInput = null;
             }
         }
-        public static string SetName(string nameInput)
+        public void SetName(ref string nameInput)
         {
             if (!String.IsNullOrWhiteSpace(nameInput))
             {
-                return nameInput;
+                name = nameInput;
             }
             else
             {
                 Console.WriteLine("Некорректное имя.");
-                return null;
+                nameInput = null;
             }
         }
-        public static string SetSurname(string surnameInput)
+        public void SetSurname(ref string surnameInput)
         {
-            if (!String.IsNullOrWhiteSpace(surnameInput) || surnameInput != "")
+            if (!String.IsNullOrWhiteSpace(surnameInput))
             {
-                return surnameInput;
+                surname = surnameInput;
             }
             else
             {
                 Console.WriteLine("Некорректная фамилия.");
-                return null;
+                surnameInput = null;
             }
         }
-        public static int SetAge(int ageInput)
+        public void SetAge(ref int ageInput)
         {
             if (ageInput >= 1 && ageInput <= 100)
             {
-                return ageInput;
+                age = ageInput;
             }
             else
             {
                 Console.WriteLine("Некорректный возраст");
-                return 0;
+                ageInput = 0;
             }
         }
 

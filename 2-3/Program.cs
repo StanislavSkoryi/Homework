@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace _2_4
 {
-    public class Program
+    public static class DataProcessing
     {
         public static string GetInfoFromInput(string message)
         {
@@ -79,6 +79,9 @@ namespace _2_4
             }
         }
 
+    }
+    public class Program
+    {
         static void Main(string[] args)
         {
             string nameInput = null, surnameInput = null, positionInput = null;
@@ -86,26 +89,26 @@ namespace _2_4
 
             while (nameInput == null)
             {
-                nameInput = GetInfoFromInput("Введите имя:");
-                nameInput = ValidationName(nameInput);
+                nameInput = DataProcessing.GetInfoFromInput("Введите имя:");
+                nameInput = DataProcessing.ValidationName(nameInput);
             }
 
             while (surnameInput == null)
             {
-                surnameInput = GetInfoFromInput("Введите фамилию:");
-                surnameInput = ValidationName(surnameInput);
+                surnameInput = DataProcessing.GetInfoFromInput("Введите фамилию:");
+                surnameInput = DataProcessing.ValidationName(surnameInput);
             }
 
             while (positionInput == null)
             {
-                positionInput = GetInfoFromInput("Введите должность:");
-                positionInput = ValidationPosition(positionInput);
+                positionInput = DataProcessing.GetInfoFromInput("Введите должность:");
+                positionInput = DataProcessing.ValidationPosition(positionInput);
             }
 
             while (experienceInput == 0)
             {
-                experienceInput = GetNumberFromInput("Введите опыт работы в годах:");
-                experienceInput = ValidationExperienceNumber(experienceInput);
+                experienceInput = DataProcessing.GetNumberFromInput("Введите опыт работы в годах:");
+                experienceInput = DataProcessing.ValidationExperienceNumber(experienceInput);
             }
 
             Employee employee = new Employee(nameInput, surnameInput, positionInput, experienceInput);

@@ -18,10 +18,9 @@ namespace _2_4
             experience = experienceInput;
         }
 
-        public double GetSalary()
+        private int GetInitialRate()
         {
             int initialRate = 0;
-            double experienceRate;
 
             switch (position)
             {
@@ -32,11 +31,18 @@ namespace _2_4
                 default: break;
             }
 
-            if(experience < 1)
+            return initialRate;
+        }
+
+        private double GetExperienceRate()
+        {
+            double experienceRate;
+
+            if (experience < 1)
             {
                 experienceRate = 1;
             }
-            else if(experience < 3)
+            else if (experience < 3)
             {
                 experienceRate = 1.2;
             }
@@ -44,6 +50,14 @@ namespace _2_4
             {
                 experienceRate = 1.4;
             }
+
+            return experienceRate;
+        }
+
+        public double GetSalary()
+        {
+            int initialRate = GetInitialRate();
+            double experienceRate = GetExperienceRate();
 
             double salary = initialRate * experienceRate * (1 - TAX_RATE);
 
